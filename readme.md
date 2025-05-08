@@ -2,17 +2,21 @@
 
 AutoRag を使った簡単なフォームのページ。
 
+**これは私の設定を崩して公開用に変えてます。**
+
+# Install
+
+```shell
+> bun i -d
+
+# 開発用画面を表示
+> bun run dev
+```
+
 ## 利用サービス
 
 1. Cloudflare
 2. OpenAI
-
-## 使い方
-
-```shell
-> bun i -d
->
-```
 
 ## 設定
 
@@ -30,3 +34,8 @@ OPENAI_MODEL=gpt-4o-mini
 ## AutoRAG
 
 がんばって…
+
+# よくわかってない所
+
+1. GitHub + Cloudflare で連携しているため、 main ブランチに push したら自動デプロイする感じにしている。 `bun run deploy` でも行きそうな雰囲気はあるけど、よくわからない。
+2. テストってどうやるんだろ…
