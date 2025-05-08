@@ -1,0 +1,32 @@
+# Hono + React + AI Gateway + AutoRag
+
+AutoRag を使った簡単なフォームのページ。
+
+## 利用サービス
+
+1. Cloudflare
+2. OpenAI
+
+## 使い方
+
+```shell
+> bun i -d
+>
+```
+
+## 設定
+
+`.dev.vars` というファイルを作成し、下記の項目を追加する。
+
+```dotenv
+OPENAI_API_KEY=<OpenAI API Key>
+OPENAI_ENDPOINT=<EndPoint>
+AUTORAG_NAME=<AutoRAG Name>
+OPENAI_MODEL=gpt-4o-mini
+```
+
+これらの情報を Cloudflare で設定するには、一度デプロイをした後、「コンピューティング（Workers）」→該当の Workerを選択→「設定」に増えているので、適当に入力する。
+
+## AutoRAG
+
+がんばって…
