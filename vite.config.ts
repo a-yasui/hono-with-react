@@ -1,34 +1,14 @@
-import build from '@hono/vite-build/cloudflare-workers'
-import devServer from '@hono/vite-dev-server'
-import adapter from '@hono/vite-dev-server/cloudflare'
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from '@tailwindcss/vite'
+import { cloudflare } from "@cloudflare/vite-plugin";
+import path from "path"
 
-export default defineConfig(({ mode }) => {
-  if (mode === 'client') {
-    return {
-      build: {
-        rollupOptions: {
-          input: './src/client.tsx',
-          output: {
-            entryFileNames: 'static/client.js'
-          }
-        }
-      }
-    }
-  } else {
-    return {
-      ssr: {
-        external: ['react', 'react-dom']
-      },
-      plugins: [
-        build({
-          outputDir: 'dist-server'
-        }),
-        devServer({
-          adapter,
-          entry: 'src/index.tsx'
-        })
-      ]
-    }
-  }
-})
+export default defineConfig({
+  plugins: [react(), tailwindcss(), cloudflare()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+});
